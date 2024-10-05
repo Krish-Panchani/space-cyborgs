@@ -4,7 +4,11 @@ module.exports = {
     "./src/**/*.{js,jsx,ts,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        'Nasa': ['Nasa'], // Adjust to your font name
+      },
+    },
     keyframes: {
       'gradient-animate': {
           '0%, 100%': {
