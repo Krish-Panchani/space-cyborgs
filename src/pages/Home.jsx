@@ -71,7 +71,7 @@ function Home() {
   return (
     <div className='App  text-white p-4'>
       <h1 className="text-5xl font-bold mb-4 text-center">Space Cyborgs</h1>
-      <div className="min-h-screen flex items-center justify-center py-8 px-4 gap-8">
+      <div className="min-h-screen flex flex-col sm:flex-row items-center justify-center py-8 px-4 gap-8">
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -85,7 +85,7 @@ function Home() {
           />
         </motion.div>
 
-        <div className="flex flex-col items-center justify-center ">
+        <div className="flex flex-row sm:flex-col items-center justify-center ">
           {coordinates && <CoordinatesDisplay coordinates={coordinates} />}
           {polygonDetails.length > 0 && <PolygonDisplay polygonDetails={polygonDetails} />}
           {farmersData.length > 0 && <FarmersDataDisplay farmersData={farmersData} />} {/* Show Farmers Data */}
