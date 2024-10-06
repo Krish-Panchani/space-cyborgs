@@ -31,7 +31,7 @@ const Navbar = () => {
           transition={{ duration: 0.5 }}
         >
           <FaRocket className="text-2xl text-blue-500" />
-          <span className="text-2xl font-Nasa">Space Cyborgs</span>
+          <span className="text-2xl font-Nasa">SAIC</span>
         </motion.div>
 
         {/* Hamburger Icon for Mobile */}
