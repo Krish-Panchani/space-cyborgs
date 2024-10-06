@@ -1,12 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@font-face {
-  font-family: 'Nasa';
-  src: url('./assets/fonts/Nasa.ttf') format('truetype'); /* Adjust the path and format as necessary */
-  font-weight: normal;
-  font-style: normal;
-}
+
 
 body {
   margin: 0;
@@ -20,6 +15,17 @@ body {
 code {
   font-family: 'Space Mono', monospace;
 }
+
+.bg-gradient-to-r.from-blue-900.to-black {
+  background: linear-gradient(to right, #0d1a34, #000000);
+}
+.flex.items-center.space-x-4 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
 
 .custom-marker {
   background-color: #9118f5; /* NASA Yellow */
