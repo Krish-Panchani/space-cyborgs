@@ -10,6 +10,7 @@ import SatelliteDashboard from './pages/SatelliteDashboard';
 import FarmersJournal from './pages/FarmersJournal';
 import WeatherForecast from './pages/WeatherForecast';
 import FieldInsights from './pages/FieldInsights';
+import Footer from './components/Footer';
 
 function App() {
   return (
@@ -31,7 +32,7 @@ function App() {
           <Route path="/about" element={<About />} />
         </Routes>
 
-        
+        <Footer />
       </div>
     </Router>
   );
