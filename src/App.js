@@ -11,6 +11,7 @@ import FarmersJournal from './pages/FarmersJournal';
 import WeatherForecast from './pages/WeatherForecast';
 import FieldInsights from './pages/FieldInsights';
 import Footer from './components/Footer';
+import MandiPortal from './pages/MandiPortal';
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
           <Route path="/field-insights" element={<FieldInsights />} />
           <Route path="/farmers-journal" element={<FarmersJournal />} />
           <Route path="/about" element={<About />} />
+          <Route path="/mandi-portal" element={<MandiPortal />} />
         </Routes>
 
         <Footer />
