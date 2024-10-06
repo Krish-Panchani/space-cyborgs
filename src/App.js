@@ -1,98 +1,39 @@
+// src/App.js or src/pages/Home.jsx
+import React, { useState } from 'react';
+import Navbar from './components/Navbar';
+import Notification from './components/Notification';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Home from './pages/Home'; // Adjust based on your folder structure
+import About from './pages/About'; // Adjust based on your folder structure
 // src/App.js
-import React, { useEffect, useState } from 'react';
-import MapComponent from './components/MapComponent';
-import CoordinatesDisplay from './components/CoordinatesDisplay';
-import PolygonDisplay from './components/PolygonDisplay';
-import FarmersDataDisplay from './components/FarmersDataDisplay';
-import InsightsDisplay from './components/InsightsDisplay'; // Import the new component
-import { motion } from 'framer-motion';
-
-const insightsData = [
-  { title: 'Precipitation', description: 'Data from IMERG for global precipitation measurement.' },
-  { title: 'Floods', description: 'Monitoring floods using OPERA and SAR technologies.' },
-  { title: 'Drought', description: 'Insights from Landsat and ECOSTRESS for drought assessment.' },
-  { title: 'Vegetation Growth', description: 'Monitoring growth with MODIS and VIIRS data.' },
-  { title: 'Air Quality', description: 'Air quality insights from MODIS and VIIRS.' },
-  { title: 'Clouds', description: 'Cloud monitoring using MISR and AMSR2.' },
-  { title: 'Soil Moisture', description: 'Soil moisture data from SMAP for irrigation planning.' },
-  { title: 'Evapotranspiration', description: 'Data from ECOSTRESS and MODIS for water management.' }
-];
+import SatelliteDashboard from './pages/SatelliteDashboard';
+import FarmersJournal from './pages/FarmersJournal';
+import WeatherForecast from './pages/WeatherForecast';
+import FieldInsights from './pages/FieldInsights';
 
 function App() {
-  const [coordinates, setCoordinates] = useState(null);
-  const [currentLocation, setCurrentLocation] = useState([51.505, -0.09]); // Default coordinates
-  const [polygonDetails, setPolygonDetails] = useState([]);
-  const [farmersData, setFarmersData] = useState([]);
-
-  const dummyData = [
-    {
-      id: 1,
-      soilType: 'Loamy',
-      moistureLevel: '30%',
-      cropHealth: 'Healthy',
-    },
-    {
-      id: 2,
-      soilType: 'Clay',
-      moistureLevel: '50%',
-      cropHealth: 'Moderate',
-    },
-    {
-      id: 3,
-      soilType: 'Sandy',
-      moistureLevel: '15%',
-      cropHealth: 'Poor',
-    },
-  ];
-
-  // Fetch user's current location
-  useEffect(() => {
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(
-        (position) => {
-          const { latitude, longitude } = position.coords;
-          const userLocation = [latitude, longitude];
-          setCurrentLocation(userLocation); // Set current location
-          setCoordinates({ lat: latitude, lng: longitude }); // Set coordinates for display
-        },
-        () => {
-          console.error("Error fetching location. Using default.");
-        }
-      );
-    }
-  }, []);
-
-  // Update polygon details when a polygon is drawn
-  const handlePolygonDraw = (latlngs) => {
-    setPolygonDetails(latlngs); // Update polygon details with the drawn coordinates
-    setFarmersData(dummyData); // Update farmers data (this can be customized further)
-  };
-
   return (
-    <div className='App font-Nasa tracking-wide bg-gradient-to-b from-blue-900 to-black text-white p-4'>
-      <h1 className="text-5xl font-bold mb-4 text-center">Space Cyborgs</h1>
-      <div className="min-h-screen flex items-center justify-center py-8 px-4 gap-8">
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5 }}
-          className="relative w-full max-w-4xl rounded-lg overflow-hidden shadow-lg"
-        >
-          <MapComponent
-            currentLocation={currentLocation}
-            setCoordinates={setCoordinates}
-            setPolygonDetails={handlePolygonDraw} // Pass the handler to set polygon details
-          />
-        </motion.div>
+    <Router>
+      <div className="App bg-gradient-to-b from-blue-900 to-black">
+        <Navbar />
 
-        <div className="flex flex-col items-center justify-center ">
-          {coordinates && <CoordinatesDisplay coordinates={coordinates} />}
-          {polygonDetails.length > 0 && <PolygonDisplay polygonDetails={polygonDetails} />}
-          {farmersData.length > 0 && <FarmersDataDisplay farmersData={farmersData} />} {/* Show Farmers Data */}
+        {/* Notification Area */}
+        <div className="mt-4 mx-4">
+          <Notification />
         </div>
+
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/satellite-dashboard" element={<SatelliteDashboard />} />
+          <Route path="/weather-forecast" element={<WeatherForecast />} />
+          <Route path="/field-insights" element={<FieldInsights />} />
+          <Route path="/farmers-journal" element={<FarmersJournal />} />
+          <Route path="/about" element={<About />} />
+        </Routes>
+
+        
       </div>
-          <InsightsDisplay insightsData={insightsData} /> {/* Display insights data */}
-    </div>
+    </Router>
   );
 }
 
