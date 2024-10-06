@@ -1,7 +1,7 @@
 // src/components/Navbar.jsx
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { FaRocket, FaGlobe, FaInfoCircle } from 'react-icons/fa';
+import { FaRocket, FaGlobe, FaInfoCircle, FaBook, FaCloudSun } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 
 const Navbar = () => {
@@ -27,11 +27,28 @@ const Navbar = () => {
               <span>Home</span>
             </Link>
           </li>
-          {/* You can add more nav links here for additional pages */}
           <li>
             <Link to="/about" className="hover:text-blue-500 transition-colors duration-200 flex items-center space-x-2">
               <FaInfoCircle className="text-xl" />
               <span>About</span>
+            </Link>
+          </li>
+          <li>
+            <Link to="/field-insights" className="hover:text-blue-500 transition-colors duration-200 flex items-center space-x-2">
+              <FaBook className="text-xl" />
+              <span>Field Insights</span>
+            </Link>
+          </li>
+          <li>
+            <Link to="/satellite-dashboard" className="hover:text-blue-500 transition-colors duration-200 flex items-center space-x-2">
+              <FaCloudSun className="text-xl" />
+              <span>Satellite Dashboard</span>
+            </Link>
+          </li>
+          <li>
+            <Link to="/weather-forecast" className="hover:text-blue-500 transition-colors duration-200 flex items-center space-x-2">
+              <FaCloudSun className="text-xl" />
+              <span>Weather Forecast</span>
             </Link>
           </li>
         </ul>
