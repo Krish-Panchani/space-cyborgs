@@ -1,7 +1,7 @@
 // src/components/Navbar.jsx
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { FaRocket, FaGlobe, FaInfoCircle, FaBook, FaCloudSun } from 'react-icons/fa';
+import { FaRocket, FaGlobe, FaInfoCircle, FaBook, FaCloudSun, FaHandHoldingHeart } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 
 const Navbar = () => {
@@ -16,7 +16,7 @@ const Navbar = () => {
           transition={{ duration: 0.5 }}
         >
           <FaRocket className="text-2xl text-blue-500" />
-          <span className="text-2xl font-Nasa">Space Cyborgs</span>
+          <span className="text-2xl font-Nasa">Mandi Mart</span>
         </motion.div>
 
         {/* Links */}
@@ -25,12 +25,6 @@ const Navbar = () => {
             <Link to="/" className="hover:text-blue-500 transition-colors duration-200 flex items-center space-x-2">
               <FaGlobe className="text-xl" />
               <span>Home</span>
-            </Link>
-          </li>
-          <li>
-            <Link to="/about" className="hover:text-blue-500 transition-colors duration-200 flex items-center space-x-2">
-              <FaInfoCircle className="text-xl" />
-              <span>About</span>
             </Link>
           </li>
           <li>
@@ -49,6 +43,18 @@ const Navbar = () => {
             <Link to="/weather-forecast" className="hover:text-blue-500 transition-colors duration-200 flex items-center space-x-2">
               <FaCloudSun className="text-xl" />
               <span>Weather Forecast</span>
+            </Link>
+          </li>
+          <li>
+            <Link to="/mandi-portal" className="hover:text-blue-500 transition-colors duration-200 flex items-center space-x-2">
+              <FaHandHoldingHeart className="text-xl" />
+              <span>Mandi Portal</span>
+            </Link>
+          </li>
+          <li>
+            <Link to="/about" className="hover:text-blue-500 transition-colors duration-200 flex items-center space-x-2">
+              <FaInfoCircle className="text-xl" />
+              <span>About</span>
             </Link>
           </li>
         </ul>
