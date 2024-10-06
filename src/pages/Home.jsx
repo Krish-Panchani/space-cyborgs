@@ -31,18 +31,6 @@ function Home() {
       moistureLevel: '30%',
       cropHealth: 'Healthy',
     },
-    {
-      id: 2,
-      soilType: 'Clay',
-      moistureLevel: '50%',
-      cropHealth: 'Moderate',
-    },
-    {
-      id: 3,
-      soilType: 'Sandy',
-      moistureLevel: '15%',
-      cropHealth: 'Poor',
-    },
   ];
 
   // Fetch user's current location
