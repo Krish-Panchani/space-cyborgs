@@ -58,7 +58,7 @@ function Home() {
 
   return (
     <div className='App  text-white p-4'>
-      <h1 className="text-5xl font-bold mb-4 text-center">Space Cyborgs</h1>
+      <h1 className="text-5xl font-bold mb-4 text-center">Satellite Agriculture Insights and Community</h1>
       <div className="min-h-screen flex flex-col sm:flex-row items-center justify-center py-8 px-4 gap-8">
         <motion.div
           initial={{ opacity: 0 }}
